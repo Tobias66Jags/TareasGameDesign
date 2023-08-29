@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4664421465281140}
   - component: {fileID: 33398800631528400}
   - component: {fileID: 23680195636244828}
+  - component: {fileID: -3047070191344656363}
   m_Layer: 0
   m_Name: Block_Rounded_Sand
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-3047070191344656363
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874045716279796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 51a77d4d1fc40e54c8b9bf7b689bfc7b, type: 3}

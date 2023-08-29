@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4724530101673762}
   - component: {fileID: 33449861803011742}
   - component: {fileID: 23327347426872254}
+  - component: {fileID: -1652006234198904576}
   m_Layer: 0
   m_Name: Block_Rounded_SnowBase
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-1652006234198904576
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357792890523260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 352d61166fe86e64c8c239704389011f, type: 3}

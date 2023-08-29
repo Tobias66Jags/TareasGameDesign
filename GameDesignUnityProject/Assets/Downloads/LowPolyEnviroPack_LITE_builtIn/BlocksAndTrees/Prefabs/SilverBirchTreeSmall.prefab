@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4150401722841622}
   - component: {fileID: 33038840276794276}
   - component: {fileID: 23559705383165640}
+  - component: {fileID: -7662914784980727486}
   m_Layer: 0
   m_Name: SilverBirchTreeSmall
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-7662914784980727486
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316147484810632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: fc4220651c293234da864edccb98c73d, type: 3}

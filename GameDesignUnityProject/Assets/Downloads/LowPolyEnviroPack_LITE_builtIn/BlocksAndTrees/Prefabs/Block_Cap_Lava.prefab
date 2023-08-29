@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4418388609040872}
   - component: {fileID: 33700240373352638}
   - component: {fileID: 23608778419284272}
+  - component: {fileID: 8051436557894720253}
   m_Layer: 0
   m_Name: Block_Cap_Lava
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8051436557894720253
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443664247703714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 23108fd9e348be54ca52d4484f8a474a, type: 3}

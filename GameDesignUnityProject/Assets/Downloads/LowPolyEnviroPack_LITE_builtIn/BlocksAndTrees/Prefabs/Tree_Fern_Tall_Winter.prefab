@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4624743296168550}
   - component: {fileID: 33117112516687800}
   - component: {fileID: 23188349273190134}
+  - component: {fileID: 1196372321053385788}
   m_Layer: 0
   m_Name: Tree_Fern_Tall_Winter
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1196372321053385788
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481702009604356}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: ba2f2af699518e84fb36161af7f35aa8, type: 3}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4734767281614642}
   - component: {fileID: 33393631336640034}
   - component: {fileID: 23300922764571318}
+  - component: {fileID: -4222199332807748673}
   m_Layer: 0
   m_Name: Block_Cap_Stones
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-4222199332807748673
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375480937148438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 924eaa973399c1741bc7fecef6878a3b, type: 3}
