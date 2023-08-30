@@ -13,8 +13,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _gravity = -9.81f;
     [SerializeField] private float _jumpHeight = 3f;
 
+    private float _currentSpeed = 0;   
+
     [SerializeField] private float turnSmoothTime = 0.1f;
     float _turnSmoothVelocity;
+
+   
 
     Vector3 velocity;
 
@@ -28,11 +32,13 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
+        _currentSpeed = _speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (_controller.isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
@@ -50,19 +56,24 @@ public class PlayerController : MonoBehaviour
         {
            // _anim.Play(_jumpAnim);
             velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+           
         }
+        
 
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            Vector3 moveDir=Vector3.zero;
 
-
-
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            _controller.Move(moveDir.normalized * _speed * Time.deltaTime);
-
+               moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            
+                _controller.Move(moveDir.normalized * _currentSpeed * Time.deltaTime);
+            
         }
     }
+
+
+  
 }
