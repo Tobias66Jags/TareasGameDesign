@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public bool canGetDamage=true;
+
     public UnityEvent OnDeath;
 
     public Animator feedAnim; 
@@ -24,11 +26,15 @@ public class PlayerHealth : MonoBehaviour
         {
             OnDeath.Invoke();
         }
+        if (currentHealth<=0)
+        {
+            GameManager.Instance.LoadScene("SampleScene");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Damage"))
+        if (other.CompareTag("Damage") && canGetDamage)
         {
             GetDamage(5);
         } 

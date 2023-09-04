@@ -9,6 +9,8 @@ TagManager:
   - Chest
   - Ice
   - Damage
+  - PlayerPos
+  - Sword
   layers:
   - Default
   - TransparentFX
@@ -19,9 +21,9 @@ TagManager:
   - Terrain
   - Floating
   - Chest
-  - 
-  - 
-  - 
+  - Enemy
+  - Sword
+  - Player
   - 
   - 
   - 

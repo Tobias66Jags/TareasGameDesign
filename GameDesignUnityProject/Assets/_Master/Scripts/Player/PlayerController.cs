@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnSmoothTime = 0.1f;
     float _turnSmoothVelocity;
 
-   
 
     Vector3 velocity;
 

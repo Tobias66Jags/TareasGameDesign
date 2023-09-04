@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerStates : MonoBehaviour
 {
-   
+    public PlayerHealth playerHealth;
+
 
     public Animator animator;
 
@@ -78,9 +79,13 @@ public class PlayerStates : MonoBehaviour
 
         GetKey("Attack", PlayerState.Attack);
         GetKey("Jump", PlayerState.Jump);
+
+        playerHealth.canGetDamage = true;
     }
     public void Run()
     {
+        playerHealth.canGetDamage = true;
+
         animator.Play(_runAnim);
         UpKey("Ww", PlayerState.Idle);
         UpKey("Wa", PlayerState.Idle);
@@ -93,12 +98,16 @@ public class PlayerStates : MonoBehaviour
     }
     public void Attack()
     {
+        playerHealth.canGetDamage = false;
+
         animator.Play(_attackAnim);
         GetKey("Jump", PlayerState.Jump);
         StartCoroutine(WaitToState(PlayerState.Idle, attackTime));
     }
     public void Jump()
     {
+        playerHealth.canGetDamage = false;
+
         animator.Play(_jumpAnim);
         StartCoroutine(WaitToState(PlayerState.Idle, jumpTime));
     }
