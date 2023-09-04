@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     CharacterController _controller;
     [SerializeField] private Transform _cam;
 
+    [SerializeField] private Animator _animator;
+
     [Header("Physic Values")]
 
     [SerializeField] private float _speed = 6f;
@@ -22,11 +24,7 @@ public class PlayerController : MonoBehaviour
 
     Vector3 velocity;
 
-    [Header("Animations")]
-
-   // [SerializeField] private Animator _anim;
-    [SerializeField] private string _jumpAnim, _runAnim, _attackAnim;
-
+   
 
 
     private void Start()
@@ -52,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
         _controller.Move(velocity * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && _controller.isGrounded)
+        if (Input.GetButton("Jump") && _controller.isGrounded)
         {
            // _anim.Play(_jumpAnim);
             velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
@@ -75,5 +73,25 @@ public class PlayerController : MonoBehaviour
     }
 
 
-  
+  public void TransportPLayer(Transform ToTransport)
+    {
+        _controller.enabled = false;
+        this.gameObject.transform.position= ToTransport.position;
+        _controller.enabled = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ice"))
+        {
+            StartCoroutine(iceBreak(other.gameObject));
+        }
+    }
+
+    public IEnumerator iceBreak(GameObject IceBlock)
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        IceBlock.SetActive(false);
+    }
+
 }

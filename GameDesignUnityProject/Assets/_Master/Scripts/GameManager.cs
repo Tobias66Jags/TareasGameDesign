@@ -4,15 +4,70 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager Instance;
+
+    public bool _toTheNextStage = false;
+
+    public float maxKeys=3;
+    public float currentKeys=0;
+
+    public float timeToKey = 1.8f;
+
+    public List<GameObject> iceBlocks = new List<GameObject>();
+
+
+    private void OnEnable()
     {
+      
+            Instance = this;
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        currentKeys = 0;
+        _toTheNextStage = false;
+    }
+
+
+
+
+    public void Update()
+    {
+        if (currentKeys >= maxKeys)
+        {
+            _toTheNextStage = true;
+        }
+    }
+
+    public void AddKey()
+    {
+        currentKeys++;
+    }
+
+    private void OnDestroy()
+    {
+        Instance = this;
+    }
+
+
+    public void ActiveKey(GameObject Key)
+    {
+            StartCoroutine(ActiveUIKey(Key));   
+       // StopAllCoroutines();    
+    }
+
+    public IEnumerator ActiveUIKey(GameObject KeyImage)
+    {
+        yield return new WaitForSeconds(timeToKey); 
+        KeyImage.SetActive(true);
+    }
+
+    public void ActivateIceBlocks()
+    {
+        foreach (GameObject Block in iceBlocks)
+        {
+           Block.SetActive(true);
+        }
     }
 }

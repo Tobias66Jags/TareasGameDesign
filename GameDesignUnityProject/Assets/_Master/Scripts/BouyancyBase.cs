@@ -79,4 +79,9 @@ public class BouyancyBase : MonoBehaviour
             rb.mass = rb.mass - other.GetComponent<Rigidbody>().mass;
         }
     }
+
+    public void ResetMass()
+    {
+        rb.mass = firstMass;
+    }
 }
