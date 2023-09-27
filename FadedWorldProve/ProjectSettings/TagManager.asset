@@ -3,14 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Terrain
-  - DeadZone
-  - Chest
-  - Ice
-  - Damage
-  - PlayerPos
-  - Sword
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -18,14 +11,14 @@ TagManager:
   - 
   - Water
   - UI
-  - Terrain
-  - Floating
-  - Chest
-  - Enemy
-  - Sword
-  - Player
-  - Ground
-  - ColorFul
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
