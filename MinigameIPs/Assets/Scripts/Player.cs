@@ -23,9 +23,24 @@ public class Player : MonoBehaviour
             if (hit.collider != null)
             {
                 // Desactivar el objeto golpeado.
-                hit.collider.gameObject.SetActive(false);
+                /*hit.collider.gameObject.SetActive(false);
+                Animator anim;
+               hit.collider.gameObject.GetComponent<Animator>().Play("Death");*/
+
+                StartCoroutine(SetDeath(hit));
+
             }
         }
+
+         IEnumerator SetDeath(RaycastHit2D hit)
+        {
+            Animator anim;
+            hit.collider.gameObject.GetComponent<Animator>().Play("Death");
+            yield return new WaitForSecondsRealtime(0.10f);
+            hit.collider.gameObject.SetActive(false);
+          
+            StopAllCoroutines();
+        } 
     }
 
 

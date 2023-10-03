@@ -65,6 +65,14 @@ public class ObjectPooler : MonoBehaviour
     private IEnumerator DeactivateObject(GameObject obj)
     {
         yield return new WaitForSeconds(despawnTime);
+
+        if (despawnTime<=0.6)
+        {
+            despawnTime = 0.6f;
+        }else
+        {
+            despawnTime -= 0.2f;
+        }
         obj.SetActive(false);
     }
 
@@ -73,6 +81,8 @@ public class ObjectPooler : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(8f);
+
+           
             spawnRate -= 0.1f;
         }
     }
