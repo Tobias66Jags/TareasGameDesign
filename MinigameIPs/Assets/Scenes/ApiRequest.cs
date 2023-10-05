@@ -10,17 +10,23 @@ using UnityEngine.Networking;
 
 public class ApiRequest : MonoBehaviour
 {
+    public GetIPData getIPData;
+
+
     public static ApiRequest Instance;
 
-    
+    public int index = 0;
+    int edad = 0;
 
-  //  [SerializeField] string apiURL, myIP;
+
+    //  [SerializeField] string apiURL, myIP;
     [SerializeField] List<string> IPList = new List<string>();
     [SerializeField] GameObject ipNameObject;
 
     [Header("Parse")]
     [SerializeField] public List<string> apis = new List<string>();
     [SerializeField] public List<string> apisnames = new List<string>();
+    [SerializeField] public List<string> apisages = new List<string>();
 
 
     [SerializeField] string apiURL, myIP, ips;
@@ -28,7 +34,7 @@ public class ApiRequest : MonoBehaviour
     UnityWebRequestAsyncOperation operation;
     string resutado = "";
 
-
+    public string apiToGet = "";
 
 
    public TMP_InputField apiRegister, getApi;
@@ -144,6 +150,52 @@ public class ApiRequest : MonoBehaviour
             apis.Add(ip);
             Debug.Log(ip);
         }
+    }
+
+
+    private void Update()
+    {
+       
+        if (apis.Count>0)
+        {
+
+           
+         
+            SetNewApi();
+        }
+    }
+
+    [ContextMenu("Set New Api")]
+    public void SetNewApi()
+    {
+
+
+        apiToGet = apis[index];
+        
+        
+
+        if (Input.GetKeyDown("d")) 
+        {
+            getIPData.PideApi();
+            getIPData.PrintApi();
+            index ++;
+           
+            if (index>=apis.Count-1)
+            {
+                index = 0;
+            }
+        } 
+        
+       /* if (Input.GetKeyDown("a") ) 
+        {
+            index --;
+            getIPData.PideApi();
+            getIPData.PrintApi();
+            if (index==-1)
+            {
+                index = apis.Count-1;
+            }
+        }*/
     }
 
 }
