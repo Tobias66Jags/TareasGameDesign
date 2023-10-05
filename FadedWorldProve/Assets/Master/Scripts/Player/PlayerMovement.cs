@@ -21,12 +21,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        _movement.x = Input.GetAxisRaw("Horizontal");
-        _movement.y = Input.GetAxisRaw("Vertical");
+        if (GameManager.Instance.isPlay) 
+        {
+            _movement.x = Input.GetAxisRaw("Horizontal");
+            _movement.y = Input.GetAxisRaw("Vertical");
 
-        _animator.SetFloat("Horizontal", _movement.x);
-        _animator.SetFloat("Vertical", _movement.y);
-        _animator.SetFloat("Speed", _movement.sqrMagnitude);
+            _animator.SetFloat("Horizontal", _movement.x);
+            _animator.SetFloat("Vertical", _movement.y);
+            _animator.SetFloat("Speed", _movement.sqrMagnitude);
+        }
     }
 
     private void FixedUpdate()
