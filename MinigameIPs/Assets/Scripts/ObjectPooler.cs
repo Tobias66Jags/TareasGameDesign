@@ -66,9 +66,9 @@ public class ObjectPooler : MonoBehaviour
     {
         yield return new WaitForSeconds(despawnTime);
 
-        if (despawnTime<=0.6)
+        if (despawnTime<=0.8)
         {
-            despawnTime = 0.6f;
+            despawnTime = 0.8f;
         }else
         {
             despawnTime -= 0.2f;

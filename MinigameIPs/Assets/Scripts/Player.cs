@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
+    public static float newC;
     private void Update()
     {
         // Mover el objeto "ObjetoSeguidor" junto con el mouse.
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour
             hit.collider.gameObject.GetComponent<Animator>().Play("Death");
             yield return new WaitForSecondsRealtime(0.10f);
             hit.collider.gameObject.SetActive(false);
-          
+            newC= hit.collider.gameObject.GetComponent<Counter>().counter;
             StopAllCoroutines();
         } 
     }
