@@ -12,6 +12,7 @@ public class Dialog : MonoBehaviour
 
     private bool _dialogueActive = false;
     private bool _isTalking = false;
+    private bool _canTalk = true;
 
     int _index = 0;
 
@@ -25,7 +26,7 @@ public class Dialog : MonoBehaviour
             {
                 GameManager.Instance.ChangeGameState();
                 _dialogueActive = false;
-
+                _canTalk = false;
                 _isTalking = true;
             }
 
@@ -59,14 +60,14 @@ public class Dialog : MonoBehaviour
             _dialogueActive = true;
             _isTalking=false;
             panel.SetActive(false);
-
+            _canTalk=true;
         }
     }
 
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && _canTalk)
         {
             _dialogueActive = true;
 
