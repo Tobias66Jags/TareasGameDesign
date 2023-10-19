@@ -5,7 +5,9 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    public static float newC;
+    public static float newC=10;
+
+    public Manager manager;
     private void Update()
     {
         // Mover el objeto "ObjetoSeguidor" junto con el mouse.
@@ -40,6 +42,16 @@ public class Player : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.10f);
             hit.collider.gameObject.SetActive(false);
             newC= hit.collider.gameObject.GetComponent<Counter>().counter;
+
+            if (newC < manager.numeroRespuesta)
+            {
+                Debug.Log("Se pudo");
+                StartCoroutine(manager.HacerPeticion("http://172.16.48.37:5000/serv/tobias/tiro/" + newC.ToString()));
+
+            }
+         
+
+
             StopAllCoroutines();
         } 
     }
