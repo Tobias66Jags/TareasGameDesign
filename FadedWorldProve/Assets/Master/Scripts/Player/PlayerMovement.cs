@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update()
-    {
+    {        
         if (GameManager.Instance.isPlay) 
         {
             _movement.x = Input.GetAxisRaw("Horizontal");
