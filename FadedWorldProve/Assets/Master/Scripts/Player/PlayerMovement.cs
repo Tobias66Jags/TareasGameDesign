@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 _movement;
 
+    bool isLocalPlayer = true;
 
     private void Start()
     {
@@ -21,7 +22,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update()
-    {        
+    {
+
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         if (GameManager.Instance.isPlay) 
         {
             _movement.x = Input.GetAxisRaw("Horizontal");
@@ -35,6 +42,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         _rb2d.MovePosition(_rb2d.position+ _movement.normalized * _moveSpeed*Time.fixedDeltaTime);
     }
 }
