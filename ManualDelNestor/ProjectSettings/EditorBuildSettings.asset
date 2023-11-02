@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/_Master/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/_Master/Scenes/MirrorScene.unity
+    path: Assets/_Master/Scenes/Lv1.unity
     guid: 7012918d27e1c1b43a0c3fe7f786b79d
   m_configObjects: {}
