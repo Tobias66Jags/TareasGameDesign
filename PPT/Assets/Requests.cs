@@ -7,17 +7,33 @@ using UnityEngine.Networking;
 
 public class Requests : MonoBehaviour
 {
+    public UrlManager UrlManager;
     public bool isGet=false;
     public float numeroRespuesta;
 
     public string choose;
     public string url = "http://172.16.48.37:5000/serv/tobias/get/tiro"; // Reemplaza esto con la URL de tu API
 
+    private void Update()
+    {
+        url = UrlManager.url+"Tiro/";
+    }
+
+
     public void SetNew(string choo)
     {
         StartCoroutine(HacerPeticion(url+choo));
         Debug.Log(url+choo);
       
+    }
+
+
+    public void SetPlayerID()
+    {
+    
+        StartCoroutine(HacerPeticion(UrlManager.readyUrl));
+        Debug.Log(UrlManager.readyUrl); 
+        
     }
     
     public IEnumerator HacerPeticion(string newUrl)
@@ -52,6 +68,9 @@ public class Requests : MonoBehaviour
                 }
             }
             yield return new WaitForSecondsRealtime(1f);
+            StopCoroutine(HacerPeticion(null));
         }
     }
+
+
 }
