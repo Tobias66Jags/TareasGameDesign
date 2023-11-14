@@ -171,7 +171,7 @@ MonoBehaviour:
   isGet: 1
   numeroRespuesta: 0
   choose: 
-  url: http://34.139.173.148/serv/tobias/get/Player1
+  url: http://172.16.48.36:5000/serv/tobias/get/Player1
 --- !u!1 &260305800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1119,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: http://34.139.173.148/serv/tobias/Player2
+          m_StringArgument: http://172.16.48.36:5000/serv/tobias/Player2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1248903481}
@@ -1355,6 +1355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 658090427}
   - component: {fileID: 658090426}
+  - component: {fileID: 658090428}
   m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
@@ -1374,9 +1375,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fc0c4663b99034490d0cc921a44bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  win: {fileID: 658090428}
   maxTime: 10
-  currentTime: 0
+  currentTime: 7
   timerView: {fileID: 1515957243}
+  url1: http://172.16.48.36:5000/serv/tobias/get/Player1Tiro
+  url2: http://172.16.48.36:5000/serv/tobias/get/Player2Tiro
 --- !u!4 &658090427
 Transform:
   m_ObjectHideFlags: 0
@@ -1392,6 +1396,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &658090428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658090425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ed70100194fe04aaa28fb1e8cc8ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1: 
+  P2: 
 --- !u!1 &688687545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,7 +1582,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: http://34.139.173.148/serv/tobias/Player1
+          m_StringArgument: http://172.16.48.36:5000/serv/tobias/Player1
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1248903481}
@@ -2906,7 +2924,7 @@ MonoBehaviour:
   isGet: 0
   numeroRespuesta: 0
   choose: 
-  url: http://34.139.173.148/serv/tobias/Player1Tiro/
+  url: http://172.16.48.36:5000/serv/tobias/Player1Tiro/
 --- !u!4 &1928266012
 Transform:
   m_ObjectHideFlags: 0
