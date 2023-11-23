@@ -3,71 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
+using System.Data;
 
-public class Timer : MonoBehaviour
+public class SetCard : MonoBehaviour
 {
-    public Comparador comparador;
-
-
+    public TextMeshProUGUI numP1;
+    public TextMeshProUGUI numP2;
+    public TextMeshProUGUI numP3;
+    public TextMeshProUGUI numP4;
+    public TextMeshProUGUI numP5;
     public float numeroRespuesta;
 
-    public float maxTime = 5;
-    public float currentTime;
+    int random =0;
 
-    public TextMeshProUGUI timerView;
-
-    public string url1, url2;
     private void Start()
     {
-        currentTime = maxTime;
-        SetP("34.139.173.148/serv/tobias/Timer/" + maxTime.ToString());
-        StartCoroutine(SetTimer());
-      
+        numP1.text = null;
+        numP2.text = null;
+        numP3.text = null;
+        numP4.text = null;
+        numP5.text = null;
     }
-
-    public void SetP(string a)
+    public void RandomCard()
     {
-        StartCoroutine(HacerPeticion(a));
-    }
-
-    [ContextMenu("Timer")]
-    public void InitializeTimer()
-    {
+        random = Random.Range(1, 52);
         
-        currentTime = maxTime;
-        StartCoroutine(SetTimer());
+        numP1.text= random.ToString(); 
+        numP2.text= random.ToString(); 
+        numP3.text= random.ToString(); 
+        numP4.text= random.ToString(); 
+        numP5.text= random.ToString(); 
     }
 
-    private void Update()
-
+    public void SetNewCardValue(string a)
     {
-
-        if (currentTime <= 3)
-        {
-            Debug.Log("UWU");
-            comparador.SetNewCardValue();
-        }
-
-        if (currentTime <= 0)
-        {
-            StopCoroutine(HacerPeticion("34.139.173.148/serv/tobias/Timer/" + currentTime.ToString()));
-            comparador.EncontrarMayor(comparador.PS1, comparador.PS2, comparador.PS3, comparador.PS4, comparador.PS5);
-        }
-      
-        Debug.Log(currentTime);
-        timerView.text = currentTime.ToString();
+        StartCoroutine(HacerPeticion(a+random));
     }
-    public IEnumerator SetTimer ()
-    {
-        while (currentTime>0)
-        {
 
-            SetP("34.139.173.148/serv/tobias/Timer/" + currentTime.ToString());
-            yield return new WaitForSecondsRealtime(1);
-            currentTime--;
-        }
-        
-    }
 
     public IEnumerator HacerPeticion(string newUrl)
     {
@@ -100,8 +72,8 @@ public class Timer : MonoBehaviour
                     }
                 }
             }
-            yield return new WaitForSecondsRealtime(1f);
-          //  StopAllCoroutines();
+            yield return new WaitForSecondsRealtime(10f);
+            StopAllCoroutines();
         }
     }
 }
